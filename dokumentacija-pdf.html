@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KnjigaRaj - Projektna Dokumentacija</title>
+    <style>
+        @page {
+            margin: 2cm;
+            size: A4;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            font-size: 11pt;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #c5a059;
+            padding-bottom: 20px;
+        }
+        
+        h1 {
+            color: #c5a059;
+            font-size: 24pt;
+            margin: 0;
+        }
+        
+        h2 {
+            color: #b8941f;
+            font-size: 16pt;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+        
+        h3 {
+            color: #666;
+            font-size: 13pt;
+            margin-top: 20px;
+            margin-bottom: 8px;
+        }
+        
+        .section {
+            margin-bottom: 25px;
+            page-break-inside: avoid;
+        }
+        
+        .tech-list {
+            background: #f8f9fa;
+            padding: 15px;
+            border-left: 4px solid #c5a059;
+            margin: 10px 0;
+        }
+        
+        .book-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 15px 0;
+        }
+        
+        .book-category {
+            background: #f9f9f9;
+            padding: 12px;
+            border-radius: 5px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .book-category h4 {
+            color: #c5a059;
+            margin: 0 0 8px 0;
+            font-size: 12pt;
+        }
+        
+        .book-category ul {
+            margin: 0;
+            padding-left: 15px;
+        }
+        
+        .book-category li {
+            font-size: 10pt;
+            margin-bottom: 3px;
+        }
+        
+        .contact-info {
+            background: #e8f4f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        
+        .file-structure {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 9pt;
+            line-height: 1.4;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 15px 0;
+        }
+        
+        .feature-column ul {
+            margin: 0;
+            padding-left: 15px;
+        }
+        
+        .feature-column li {
+            margin-bottom: 5px;
+            font-size: 10pt;
+        }
+        
+        .stats-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        
+        .stats-table th,
+        .stats-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+            font-size: 10pt;
+        }
+        
+        .stats-table th {
+            background-color: #f8f9fa;
+            color: #c5a059;
+            font-weight: bold;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #c5a059;
+            font-size: 10pt;
+            color: #666;
+        }
+        
+        .page-break {
+            page-break-before: always;
+        }
+        
+        @media print {
+            body { font-size: 10pt; }
+            .no-print { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>KnjigaRaj</h1>
+        <p style="font-size: 14pt; color: #666; margin: 10px 0;">Premium Online Knjižara</p>
+        <p style="font-size: 12pt; color: #888;"><strong>Projektna Dokumentacija</strong></p>
+        <p style="font-size: 10pt; color: #999;">Datum: Januar 2026 | Verzija: 1.0 | Developer: Igor Suvić</p>
+    </div>
+
+    <div class="section">
+        <h2>📖 Pregled Projekta</h2>
+        <p><strong>KnjigaRaj</strong> je premium online knjižara fokusirana na srpsku književnost i naučnu literaturu. Sajt predstavlja elegantan i funkcionalan pristup prodaji knjiga sa luksuznim dark theme dizajnom i zlatnim akcentima.</p>
+        
+        <p><strong>Cilj projekta:</strong> Kreiranje moderne, responzivne web aplikacije koja kombinuje estetiku premium dizajna sa funkcionalnim e-commerce rešenjima, fokusiranim na srpsku kulturu i obrazovanje.</p>
+        
+        <p><strong>Target grupa:</strong> Ljubitelji srpske književnosti, studenti, profesori i svi koji cene kvalitetnu literaturu i naučne publikacije.</p>
+    </div>
+
+    <div class="section">
+        <h2>💻 Tehnologije i Alati</h2>
+        <div class="tech-list">
+            <div class="features-grid">
+                <div class="feature-column">
+                    <h3>Frontend Tehnologije</h3>
+                    <ul>
+                        <li><strong>HTML5:</strong> Semantička struktura</li>
+                        <li><strong>CSS3:</strong> Napredni stilovi i animacije</li>
+                        <li><strong>JavaScript:</strong> Vanilla JS (ES6+)</li>
+                        <li><strong>Bootstrap Icons:</strong> Ikonografija</li>
+                    </ul>
+                </div>
+                <div class="feature-column">
+                    <h3>Dizajn i UX</h3>
+                    <ul>
+                        <li><strong>Responsive Design:</strong> Mobile-first pristup</li>
+                        <li><strong>Dark Theme:</strong> Luksuzni izgled</li>
+                        <li><strong>Google Fonts:</strong> Premium tipografija</li>
+                        <li><strong>CSS Grid/Flexbox:</strong> Moderni layout</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>🏗️ Struktura Sajta</h2>
+        
+        <table class="stats-table">
+            <thead>
+                <tr>
+                    <th>Stranica</th>
+                    <th>Funkcionalnost</th>
+                    <th>Ključne Sekcije</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>index.html</strong></td>
+                    <td>Početna stranica</td>
+                    <td>Hero, Featured Books, Collections, Author Spotlight</td>
+                </tr>
+                <tr>
+                    <td><strong>catalog.html</strong></td>
+                    <td>Katalog knjiga</td>
+                    <td>Filters, Book Grid, Search Results</td>
+                </tr>
+                <tr>
+                    <td><strong>author.html</strong></td>
+                    <td>O developeru</td>
+                    <td>About Section, Skills, Contact Info</td>
+                </tr>
+                <tr>
+                    <td><strong>contact.html</strong></td>
+                    <td>Kontakt i forme</td>
+                    <td>Contact Form, Reviews, Map, Contact Info</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section page-break">
+        <h2>⚙️ Funkcionalnosti</h2>
+        
+        <div class="features-grid">
+            <div class="feature-column">
+                <h3>JavaScript Funkcionalnosti</h3>
+                <ul>
+                    <li>Navbar animacije i scroll efekti</li>
+                    <li>Mobile menu sa smooth animacijama</li>
+                    <li>Active link highlighting</li>
+                    <li>Dinamičko filtriranje knjiga</li>
+                    <li>Real-time form validacija</li>
+                    <li>Review sistem sa ocenama</li>
+                    <li>Scroll to top funkcionalnost</li>
+                    <li>Parallax efekti</li>
+                    <li>Notification sistem</li>
+                    <li>Responsive image handling</li>
+                </ul>
+            </div>
+            <div class="feature-column">
+                <h3>CSS Funkcionalnosti</h3>
+                <ul>
+                    <li>Dark luxury tema sa zlatnim akcentima</li>
+                    <li>Responsive design (320px - 1400px+)</li>
+                    <li>Hover efekti i transitions</li>
+                    <li>Glassmorphism efekti</li>
+                    <li>Custom scrollbar dizajn</li>
+                    <li>CSS Grid i Flexbox layouts</li>
+                    <li>CSS varijable za konzistentnost</li>
+                    <li>Smooth animacije</li>
+                    <li>Print-friendly stilovi</li>
+                    <li>Accessibility optimizacije</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>📚 Katalog Knjiga</h2>
+        <p>Sajt sadrži pažljivo odabranu kolekciju od <strong>12 knjiga</strong> podeljenih u tri glavne kategorije:</p>
+        
+        <div class="book-grid">
+            <div class="book-category">
+                <h4>Romani i Fikcija (7 knjiga)</h4>
+                <ul>
+                    <li>Na Drini Ćuprija - Ivo Andrić</li>
+                    <li>Seobe - Miloš Crnjanski</li>
+                    <li>Derviš i Smrt - Meša Selimović</li>
+                    <li>Miš - Aleksandar Tišma</li>
+                    <li>Hazarski Rečnik - Milorad Pavić</li>
+                    <li>Gorski Vijenac - Petar II Petrović Njegoš</li>
+                </ul>
+            </div>
+            <div class="book-category">
+                <h4>Udžbenici (4 knjige)</h4>
+                <ul>
+                    <li>Matematička Analiza I - Gradimir Milovanović</li>
+                    <li>Fizika za Gimnazije - Dušan Ćirić</li>
+                    <li>Hemija za Srednje Škole - Mirjana Antonijević</li>
+                    <li>Srpski Jezik i Književnost - Živojin Stanojčić</li>
+                </ul>
+            </div>
+            <div class="book-category">
+                <h4>Naučna Literatura (2 knjige)</h4>
+                <ul>
+                    <li>Istorija Srba - Sima Ćirković</li>
+                    <li>Srpska Mitologija - Veselin Čajkanović</li>
+                </ul>
+            </div>
+        </div>
+        
+        <p><strong>Cenovni opseg:</strong> 890 - 3.200 RSD | <strong>Prosečna ocena:</strong> 4.6/5.0</p>
+    </div>
+
+    <div class="section">
+        <h2>🎨 Dizajn Principi</h2>
+        <div class="tech-list">
+            <ul>
+                <li><strong>Luksuzni pristup:</strong> Premium osećaj kroz tipografiju (Playfair Display, Inter, Montserrat) i zlatnu color paletu</li>
+                <li><strong>Čitljivost:</strong> Visok kontrast, jasna hijerarhija, optimalna veličina fontova</li>
+                <li><strong>Funkcionalnost:</strong> Intuitivna navigacija, logičan flow, brz pristup informacijama</li>
+                <li><strong>Responsivnost:</strong> Mobile-first pristup, optimizovano za sve uređaje</li>
+                <li><strong>Performance:</strong> Optimizovane slike, minifikovan kod, brzo učitavanje</li>
+                <li><strong>Accessibility:</strong> Semantički HTML, ARIA labeli, keyboard navigation</li>
+                <li><strong>Konzistentnost:</strong> Jedinstveni vizuelni jezik kroz sve stranice</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section page-break">
+        <h2>📱 Responsive Breakpoints</h2>
+        <table class="stats-table">
+            <thead>
+                <tr>
+                    <th>Uređaj</th>
+                    <th>Širina Ekrana</th>
+                    <th>Optimizacije</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Mobile</td>
+                    <td>320px - 767px</td>
+                    <td>Stacked layout, mobile menu, increased padding</td>
+                </tr>
+                <tr>
+                    <td>Tablet</td>
+                    <td>768px - 991px</td>
+                    <td>2-column grid, adjusted font sizes</td>
+                </tr>
+                <tr>
+                    <td>Desktop</td>
+                    <td>992px - 1399px</td>
+                    <td>3-column grid, full navigation</td>
+                </tr>
+                <tr>
+                    <td>Large Desktop</td>
+                    <td>1400px+</td>
+                    <td>Maximum container width, enhanced spacing</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>📁 Struktura Fajlova</h2>
+        <div class="file-structure">
+Website/
+├── index.html                  # Početna stranica (Hero, Featured Books)
+├── catalog.html               # Katalog sa filterima
+├── author.html                # Informacije o developeru
+├── contact.html               # Kontakt forme i mapa
+├── dokumentacija.html         # HTML dokumentacija
+├── dokumentacija.md          # Markdown dokumentacija
+├── dokumentacija-pdf.html    # PDF-ready dokumentacija
+├── assets/
+│   ├── css/
+│   │   ├── style.css         # Glavni CSS fajl (2000+ linija)
+│   │   └── style_broken.css  # Backup verzija
+│   ├── js/
+│   │   └── main.js          # Glavni JavaScript (400+ linija)
+│   └── img/
+│       ├── books/           # Folder za slike knjiga
+│       ├── favicon.ico      # Favicon (16x16, 32x32, 48x48)
+│       ├── apple-touch-icon.png # Apple touch icon (180x180)
+│       └── favicon-info.txt # Instrukcije za favicon
+└── bookhaven---luxury-online-bookstore/ # Reference React projekt
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>🔧 Tehnička Specifikacija</h2>
+        <table class="stats-table">
+            <thead>
+                <tr>
+                    <th>Metrika</th>
+                    <th>Vrednost</th>
+                    <th>Opis</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Ukupno linija koda</td>
+                    <td>~2500</td>
+                    <td>HTML, CSS, JavaScript kombinovano</td>
+                </tr>
+                <tr>
+                    <td>CSS varijable</td>
+                    <td>40+</td>
+                    <td>Boje, fontovi, spacing, shadows</td>
+                </tr>
+                <tr>
+                    <td>JavaScript funkcije</td>
+                    <td>15+</td>
+                    <td>Event handlers, validacija, rendering</td>
+                </tr>
+                <tr>
+                    <td>Responsive breakpoints</td>
+                    <td>4</td>
+                    <td>Mobile, Tablet, Desktop, Large Desktop</td>
+                </tr>
+                <tr>
+                    <td>Stranice</td>
+                    <td>4</td>
+                    <td>Home, Catalog, Author, Contact</td>
+                </tr>
+                <tr>
+                    <td>Knjiga u katalogu</td>
+                    <td>12</td>
+                    <td>Srpska književnost i naučna literatura</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>✅ Implementirane Funkcionalnosti</h2>
+        <div class="features-grid">
+            <div class="feature-column">
+                <h3>Korisničke Funkcionalnosti</h3>
+                <ul>
+                    <li>✓ Pregled kataloga knjiga</li>
+                    <li>✓ Filtriranje po kategoriji i ceni</li>
+                    <li>✓ Kontakt forma sa validacijom</li>
+                    <li>✓ Sistem recenzija (1-5 zvezda)</li>
+                    <li>✓ Responsive dizajn</li>
+                    <li>✓ Mobile menu</li>
+                    <li>✓ Scroll to top</li>
+                    <li>✓ Google Maps integracija</li>
+                </ul>
+            </div>
+            <div class="feature-column">
+                <h3>Tehničke Funkcionalnosti</h3>
+                <ul>
+                    <li>✓ SEO optimizacija</li>
+                    <li>✓ Open Graph meta tags</li>
+                    <li>✓ Favicon implementacija</li>
+                    <li>✓ Form validacija (real-time)</li>
+                    <li>✓ Error handling</li>
+                    <li>✓ Notification sistem</li>
+                    <li>✓ Cross-browser kompatibilnost</li>
+                    <li>✓ Performance optimizacije</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section page-break">
+        <h2>🚀 Buduća Poboljšanja</h2>
+        <div class="tech-list">
+            <ul>
+                <li><strong>E-commerce funkcionalnosti:</strong> Shopping cart, checkout proces, payment integration</li>
+                <li><strong>User management:</strong> Registracija, login, user profiles, order history</li>
+                <li><strong>Admin panel:</strong> Upravljanje knjigama, korisnicima, narudžbinama</li>
+                <li><strong>Search funkcionalnost:</strong> Napredna pretraga po naslovu, autoru, kategoriji</li>
+                <li><strong>Wishlist:</strong> Čuvanje omiljenih knjiga</li>
+                <li><strong>Newsletter:</strong> Email marketing integracija</li>
+                <li><strong>Inventory management:</strong> Praćenje zaliha, automatska obaveštenja</li>
+                <li><strong>Analytics:</strong> Google Analytics, conversion tracking</li>
+                <li><strong>Social features:</strong> Deljenje na društvenim mrežama, komentari</li>
+                <li><strong>Multi-language support:</strong> Engleski jezik kao opcija</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section contact-info">
+        <h2>📞 Kontakt Informacije</h2>
+        <div class="features-grid">
+            <div class="feature-column">
+                <h3>KnjigaRaj Knjižara</h3>
+                <ul>
+                    <li><strong>Adresa:</strong> Knez Mihailova 42, 11000 Beograd</li>
+                    <li><strong>Telefon:</strong> +381 11 234 567</li>
+                    <li><strong>Email:</strong> info@knjigaraj.rs</li>
+                    <li><strong>Website:</strong> https://knjigaraj.rs</li>
+                    <li><strong>Radno vreme:</strong> Pon-Pet 09:00-18:00</li>
+                </ul>
+            </div>
+            <div class="feature-column">
+                <h3>Developer</h3>
+                <ul>
+                    <li><strong>Ime:</strong> Igor Suvić</li>
+                    <li><strong>Pozicija:</strong> Full-Stack Web Developer</li>
+                    <li><strong>Iskustvo:</strong> 5+ godina</li>
+                    <li><strong>Specijalizacija:</strong> Premium UI/UX, E-commerce</li>
+                    <li><strong>Tehnologije:</strong> HTML, CSS, JS, React, Node.js</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>📊 Projektni Metrici</h2>
+        <table class="stats-table">
+            <thead>
+                <tr>
+                    <th>Kategorija</th>
+                    <th>Metrika</th>
+                    <th>Vrednost</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="3">Razvoj</td>
+                    <td>Vreme razvoja</td>
+                    <td>~40 sati</td>
+                </tr>
+                <tr>
+                    <td>Broj iteracija</td>
+                    <td>18 glavnih verzija</td>
+                </tr>
+                <tr>
+                    <td>Broj fajlova</td>
+                    <td>8 glavnih + dokumentacija</td>
+                </tr>
+                <tr>
+                    <td rowspan="3">Kod</td>
+                    <td>HTML linija</td>
+                    <td>~800</td>
+                </tr>
+                <tr>
+                    <td>CSS linija</td>
+                    <td>~2000</td>
+                </tr>
+                <tr>
+                    <td>JavaScript linija</td>
+                    <td>~400</td>
+                </tr>
+                <tr>
+                    <td rowspan="3">Sadržaj</td>
+                    <td>Stranice</td>
+                    <td>4 glavne</td>
+                </tr>
+                <tr>
+                    <td>Knjige u katalogu</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td>Kategorije</td>
+                    <td>3 (Romani, Udžbenici, Naučna)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="footer">
+        <h2 style="color: #c5a059; margin-bottom: 15px;">KnjigaRaj - Premium Online Knjižara</h2>
+        <p><strong>Projektna Dokumentacija</strong></p>
+        <p>Kreirana: Januar 2026 | Developed by Igor Suvić</p>
+        <p style="font-style: italic; color: #888;">
+            "Soba bez knjiga je kao telo bez duše." - Marcus Tullius Cicero
+        </p>
+        <p style="margin-top: 20px; font-size: 9pt;">
+            Ova dokumentacija predstavlja kompletnu tehničku specifikaciju KnjigaRaj premium online knjižare,<br>
+            uključujući sve implementirane funkcionalnosti, dizajn principe i buduće planove razvoja.
+        </p>
+    </div>
+</body>
+</html>

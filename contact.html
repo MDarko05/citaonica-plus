@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Čitaonica+ Kontakt - Kontaktirajte nas za sva pitanja o rezervaciji knjiga, članskim kartama i bibliotečkim uslugama.">
+    <meta name="keywords" content="kontakt, Čitaonica+, biblioteka, rezervacija, članska karta, podrška, srpska književnost">
+    <meta name="author" content="Čitaonica+">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph meta tags -->
+    <meta property="og:title" content="Čitaonica+ Kontakt - Kontaktirajte Nas">
+    <meta property="og:description" content="Kontaktirajte Čitaonica+ digitalnu biblioteku za sva pitanja o knjigama i uslugama.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://citaonica.rs/contact">
+    
+    <title>Čitaonica+ - Kontakt | Kontaktirajte Nas</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body data-page="contact">
+    <!-- Navigation -->
+    <nav class="navbar fixed-top" id="mainNavbar">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-book me-2"></i>
+                <span>Čitaonica<span class="text-gold">+</span></span>
+            </a>
+            
+            <button class="navbar-toggler d-md-none" type="button" id="navbarToggler">
+                <i class="bi bi-list" id="navbarIcon"></i>
+            </button>
+            
+            <div class="navbar-nav d-none d-md-flex" id="navbarNav">
+                <a class="nav-link" href="index.html">POČETNA</a>
+                <a class="nav-link" href="catalog.html">KATALOG</a>
+                <a class="nav-link" href="author.html">AUTOR</a>
+                <a class="nav-link" href="contact.html">KONTAKT</a>
+                <a class="nav-link" href="dokumentacija-pdf.html" target="_blank">DOCS</a>
+                <a class="btn btn-primary ms-3" href="contact.html">KONTAKT</a>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu d-md-none" id="mobileMenu">
+            <div class="mobile-menu-content">
+                <a class="mobile-nav-link" href="index.html">POČETNA</a>
+                <a class="mobile-nav-link" href="catalog.html">KATALOG</a>
+                <a class="mobile-nav-link" href="author.html">AUTOR</a>
+                <a class="mobile-nav-link" href="contact.html">KONTAKT</a>
+                <a class="mobile-nav-link" href="dokumentacija-pdf.html" target="_blank">DOCS</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Forms Section -->
+    <section class="contact-forms-section" style="padding-top: calc(var(--spacing-3xl) + 80px);">
+        <div class="container">
+            <div class="contact-card">
+                <i class="bi bi-stars contact-decoration"></i>
+                <div class="contact-content">
+                    <h2 class="contact-title">Kontaktirajte Nas</h2>
+                    <p class="contact-description">Postavite pitanje, zatražite informacije o članskim kartama ili se raspitajte o našoj kolekciji knjiga.</p>
+                    
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName" class="form-label">IME</label>
+                                <input type="text" id="firstName" name="firstName" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName" class="form-label">PREZIME</label>
+                                <input type="text" id="lastName" name="lastName" class="form-control" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email" class="form-label">EMAIL ADRESA</label>
+                                <input type="email" id="email" name="email" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone" class="form-label">TELEFON</label>
+                                <input type="tel" id="phone" name="phone" class="form-control" required>
+                            </div>
+                        </div>
+                        
+                        <!-- Radio buttons for contact reason -->
+                        <div class="form-group">
+                            <label class="form-label">RAZLOG KONTAKTA</label>
+                            <div class="radio-group">
+                                <div class="radio-item">
+                                    <input type="radio" id="generalInquiry" name="contactReason" value="opste-pitanje" checked>
+                                    <label for="generalInquiry" class="radio-label">OPŠTE PITANJE</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" id="bookRecommendation" name="contactReason" value="preporuka-knjige">
+                                    <label for="bookRecommendation" class="radio-label">PREPORUKA KNJIGE</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" id="rareBookSearch" name="contactReason" value="retka-knjiga">
+                                    <label for="rareBookSearch" class="radio-label">TRAŽIM RETKU KNJIGU</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" id="membership" name="contactReason" value="clanstvo">
+                                    <label for="membership" class="radio-label">INFORMACIJE O ČLANSTVU</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Checkboxes for interests -->
+                        <div class="form-group">
+                            <label class="form-label">OBLASTI INTERESOVANJA</label>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="classics" name="interests" value="klasici">
+                                    <label for="classics" class="checkbox-label">SRPSKI KLASICI</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="poetry" name="interests" value="poezija">
+                                    <label for="poetry" class="checkbox-label">POEZIJA I EPIKA</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="contemporary" name="interests" value="savremeno">
+                                    <label for="contemporary" class="checkbox-label">SAVREMENA PROZA</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="newsletter" name="interests" value="newsletter">
+                                    <label for="newsletter" class="checkbox-label">ŽELIM NEWSLETTER</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" class="form-label">VAŠA PORUKA</label>
+                            <textarea id="message" name="message" class="form-control" rows="4" placeholder="Opišite vaše pitanje ili zahtev..."></textarea>
+                        </div>
+                        
+                        <!-- Agreement checkbox -->
+                        <div class="form-group">
+                            <div class="checkbox-item agreement-checkbox">
+                                <input type="checkbox" id="agreement" name="agreement" required>
+                                <label for="agreement" class="checkbox-label">SLAŽEM SE SA <a href="#" class="agreement-link">USLOVIMA KORIŠĆENJA</a> I <a href="#" class="agreement-link">POLITIKOM PRIVATNOSTI</a></label>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="contact-button">
+                            POŠALJITE PORUKU
+                        </button>
+                    </form>
+                    
+                    <!-- Review Section -->
+                    <div class="review-section">
+                        <h3 class="review-section-title">Ostavite Recenziju</h3>
+                        <form class="review-form" id="reviewForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="reviewRating" class="form-label">OCENA</label>
+                                    <select id="reviewRating" name="reviewRating" class="form-control">
+                                        <option value="">Izaberite ocenu</option>
+                                        <option value="5">⭐⭐⭐⭐⭐ (5 zvezda)</option>
+                                        <option value="4">⭐⭐⭐⭐ (4 zvezde)</option>
+                                        <option value="3">⭐⭐⭐ (3 zvezde)</option>
+                                        <option value="2">⭐⭐ (2 zvezde)</option>
+                                        <option value="1">⭐ (1 zvezda)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="reviewText" class="form-label">VAŠA RECENZIJA</label>
+                                <textarea id="reviewText" name="reviewText" class="form-control" rows="3" placeholder="Podelite vaše iskustvo sa našom knjižarom..."></textarea>
+                            </div>
+                            
+                            <button type="submit" class="review-button">
+                                DODAJTE RECENZIJU
+                            </button>
+                        </form>
+                        
+                        <!-- Reviews List -->
+                        <div class="reviews-list" id="reviewsList">
+                            <!-- Reviews will be dynamically added here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Info Section -->
+    <section class="contact-info-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 contact-info-item">
+                    <div class="contact-info-icon">
+                        <i class="bi bi-geo-alt"></i>
+                    </div>
+                    <h3 class="contact-info-title">Adresa</h3>
+                    <p class="contact-info-description">Zdravka Čelara 16<br>11000 Beograd, Srbija</p>
+                </div>
+                
+                <div class="col-md-4 contact-info-item">
+                    <div class="contact-info-icon">
+                        <i class="bi bi-telephone"></i>
+                    </div>
+                    <h3 class="contact-info-title">Telefon</h3>
+                    <p class="contact-info-description">+381(11) 3290 828<br>Pon-Pet: 09:00-18:00</p>
+                </div>
+                
+                <div class="col-md-4 contact-info-item">
+                    <div class="contact-info-icon">
+                        <i class="bi bi-envelope"></i>
+                    </div>
+                    <h3 class="contact-info-title">Email</h3>
+                    <p class="contact-info-description">info@ict.edu.rs<br>support@ict.edu.rs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <div class="map-card">
+                <div class="map-header">
+                    <h2 class="map-title">Naša Lokacija</h2>
+                    <p class="map-description">Posetite nas u srcu Beograda</p>
+                </div>
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2830.5234567890123!2d20.4612345678901!3d44.8176543210987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475a7aa3b8b12345%3A0x1234567890abcdef!2sKnez%20Mihailova%2042%2C%20Beograd%2C%20Serbia!5e0!3m2!1sen!2srs!4v1234567890123!5m2!1sen!2srs" 
+                        width="100%" 
+                        height="400" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row footer-content">
+                <div class="col-md-4 footer-section">
+                    <h5 class="footer-title">NAVIGACIJA</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Početna Stranica</a></li>
+                        <li><a href="catalog.html">Katalog Knjiga</a></li>
+                        <li><a href="author.html">Autor Stranica</a></li>
+                        <li><a href="contact.html">Kontakt Stranica</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-4 footer-section">
+                    <h5 class="footer-title">KONTAKT INFO</h5>
+                    <ul class="footer-contact">
+                        <li><i class="bi bi-telephone me-2"></i>+381(11) 3290 828</li>
+                        <li><i class="bi bi-envelope me-2"></i>info@ict.edu.rs</li>
+                        <li><i class="bi bi-geo-alt me-2"></i>Zdravka Čelara 16</li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-4 footer-section">
+                    <h5 class="footer-title">
+                        <i class="bi bi-book me-2"></i>Čitaonica+
+                    </h5>
+                    <p class="footer-description">Online sistem za rezervaciju knjiga u bibliotekama. Jednostavno pretražite, rezervišite i preuzmite knjige iz naše digitalne biblioteke srpske književnosti.</p>
+                    <a href="contact.html" class="btn btn-outline-primary">KONTAKTIRAJ NAS</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p class="footer-copyright">©2025 SVI PRAVA ZADRŽANA</p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <div class="footer-social">
+                            <a href="https://github.com" class="social-link" target="_blank"><i class="bi bi-github"></i></a>
+                            <a href="https://youtube.com" class="social-link" target="_blank"><i class="bi bi-youtube"></i></a>
+                            <a href="https://instagram.com" class="social-link" target="_blank"><i class="bi bi-instagram"></i></a>
+                        </div>
+                        <p class="footer-developer">DEVELOPED BY <span class="text-gold">DARKO MILOŠEVIĆ</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="scroll-to-top">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Custom JS -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

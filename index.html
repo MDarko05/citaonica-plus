@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Čitaonica+ - Digitalna biblioteka sa bogatom kolekcijom srpske književnosti i klasične literature. Rezervišite knjige online i uživajte u čitanju.">
+    <meta name="keywords" content="digitalna biblioteka, srpska književnost, rezervacija knjiga, klasična literatura, Čitaonica+, Ivo Andrić, Miloš Crnjanski">
+    <meta name="author" content="Čitaonica+">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph meta tags -->
+    <meta property="og:title" content="Čitaonica+ - Digitalna Biblioteka Srpske Književnosti">
+    <meta property="og:description" content="Otkrijte bogatu kolekciju srpske književnosti i klasične literature u našoj digitalnoj biblioteci.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://citaonica.rs">
+    
+    <title>Čitaonica+ - Digitalna Biblioteka | Srpska Književnost</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body data-page="home">
+    <!-- Navigation -->
+    <nav class="navbar fixed-top" id="mainNavbar">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-book me-2"></i>
+                <span>Čitaonica<span class="text-gold">+</span></span>
+            </a>
+            
+            <button class="navbar-toggler d-md-none" type="button" id="navbarToggler">
+                <i class="bi bi-list" id="navbarIcon"></i>
+            </button>
+            
+            <div class="navbar-nav d-none d-md-flex" id="navbarNav">
+                <a class="nav-link" href="index.html">POČETNA</a>
+                <a class="nav-link" href="catalog.html">KATALOG</a>
+                <a class="nav-link" href="author.html">AUTOR</a>
+                <a class="nav-link" href="contact.html">KONTAKT</a>
+                <a class="nav-link" href="dokumentacija-pdf.html" target="_blank">DOCS</a>
+                <a class="btn btn-primary ms-3" href="contact.html">KONTAKT</a>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu d-md-none" id="mobileMenu">
+            <div class="mobile-menu-content">
+                <a class="mobile-nav-link" href="index.html">POČETNA</a>
+                <a class="mobile-nav-link" href="catalog.html">KATALOG</a>
+                <a class="mobile-nav-link" href="author.html">AUTOR</a>
+                <a class="mobile-nav-link" href="contact.html">KONTAKT</a>
+                <a class="mobile-nav-link" href="dokumentacija-pdf.html" target="_blank">DOCS</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-background">
+            <img src="assets/img/hero-bg.avif" alt="Library background" class="hero-bg-image">
+            <div class="hero-overlay"></div>
+        </div>
+        
+        <div class="container hero-content">
+            <div class="hero-badge">
+                <div class="hero-line"></div>
+                <span class="hero-badge-text">EST. 2025</span>
+                <div class="hero-line"></div>
+            </div>
+            
+            <h1 class="hero-title">
+                Srpska <br>
+                <span class="hero-title-accent">Književnost</span>
+            </h1>
+            
+            <p class="hero-subtitle">
+                Rezervišite knjige iz naše bibliotečke kolekcije srpske književnosti. Od Vuka Karadžića do savremenih pisaca - sve dostupno za rezervaciju.
+            </p>
+            
+            <div class="hero-buttons">
+                <a href="catalog.html" class="btn btn-primary btn-hero">
+                    REZERVIŠITE KNJIGE
+                    <i class="bi bi-arrow-right ms-2"></i>
+                </a>
+            </div>
+            
+            <!-- Spotlight Card -->
+            <div class="hero-spotlight">
+                <div class="spotlight-icon">
+                    <i class="bi bi-gem"></i>
+                </div>
+                <div class="spotlight-content">
+                    <p class="spotlight-label">IZDVOJENO</p>
+                    <h4 class="spotlight-title">Na Drini Ćuprija</h4>
+                    <p class="spotlight-description">"Remek-delo dobitnika Nobelove nagrade za književnost."</p>
+                </div>
+                <a href="catalog.html" class="spotlight-link">DETALJI</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 feature-item">
+                    <div class="feature-icon">
+                        <i class="bi bi-book-half"></i>
+                    </div>
+                    <h3 class="feature-title">Srpska Baština</h3>
+                    <p class="feature-description">Čuvamo i delimo najvrednije primere srpske književnosti kroz vekove, od narodnih pesama do savremenih dela.</p>
+                </div>
+                
+                <div class="col-md-4 feature-item">
+                    <div class="feature-icon">
+                        <i class="bi bi-calendar-check"></i>
+                    </div>
+                    <h3 class="feature-title">Laka Rezervacija</h3>
+                    <p class="feature-description">Proverite dostupnost knjiga u realnom vremenu i rezervišite ih za preuzimanje u našoj biblioteci.</p>
+                </div>
+                
+                <div class="col-md-4 feature-item">
+                    <div class="feature-icon">
+                        <i class="bi bi-gem"></i>
+                    </div>
+                    <h3 class="feature-title">Retka Izdanja</h3>
+                    <p class="feature-description">Pristupite retkim izdanjima klasika srpske književnosti koja se teško pronalaze u drugim bibliotekama.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collections Section -->
+    <section class="collections-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-header-content">
+                    <span class="section-label">PO KATEGORIJI</span>
+                    <h2 class="section-title">Književne Kolekcije</h2>
+                </div>
+                <p class="section-description">Istražite naš katalog kroz tematska putovanja srpske kulture i književnosti.</p>
+            </div>
+            
+            <div class="row collections-grid">
+                <div class="col-md-4 collection-item">
+                    <a href="catalog.html" class="collection-card">
+                        <img src="assets/img/kategorije_1.avif" alt="Srpski Klasici" class="collection-image">
+                        <div class="collection-overlay"></div>
+                        <div class="collection-content">
+                            <p class="collection-category">SRPSKA KNJIŽEVNOST</p>
+                            <h3 class="collection-title">Srpski Klasici</h3>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="col-md-4 collection-item">
+                    <a href="catalog.html" class="collection-card">
+                        <img src="assets/img/kategorije 2.avif" alt="Poezija i Epika" class="collection-image">
+                        <div class="collection-overlay"></div>
+                        <div class="collection-content">
+                            <p class="collection-category">POEZIJA I EPIKA</p>
+                            <h3 class="collection-title">Pesničko Blago</h3>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="col-md-4 collection-item">
+                    <a href="catalog.html" class="collection-card">
+                        <img src="assets/img/kategorije_3.avif" alt="Savremeni Pisci" class="collection-image">
+                        <div class="collection-overlay"></div>
+                        <div class="collection-content">
+                            <p class="collection-category">SAVREMENA PROZA</p>
+                            <h3 class="collection-title">Novi Glasovi</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Books Section -->
+    <section class="featured-books-section">
+        <div class="container">
+            <div class="featured-books-layout">
+                <div class="featured-books-header">
+                    <span class="section-label">BIBLIOTEČKA REZERVACIJA</span>
+                    <h2 class="featured-books-title">Rezervišite<br>Knjige Online</h2>
+                    <p class="featured-books-quote">"Rezervišite online, preuzmite u biblioteci - jednostavno kao nikad."</p>
+                    <p class="featured-books-description">
+                        Rezervišite knjige iz naše bibliotečke kolekcije preko našeg online sistema. 
+                        Sve rezervisane knjige čekaju vas u biblioteci na Knez Mihailovoj 42, 
+                        gde ih možete preuzeti u pogodnom terminu.
+                    </p>
+                    
+                    <div class="featured-books-features">
+                        <div class="feature-check">
+                            <i class="bi bi-1-circle"></i>
+                            <span>Pretražite bibliotečki katalog online</span>
+                        </div>
+                        <div class="feature-check">
+                            <i class="bi bi-2-circle"></i>
+                            <span>Rezervišite dostupne knjige jednim klikom</span>
+                        </div>
+                        <div class="feature-check">
+                            <i class="bi bi-3-circle"></i>
+                            <span>Dođite u biblioteku i preuzmite rezervaciju</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="featured-books-image">
+                    <img src="assets/img/kategorije_1.avif" alt="Rezervacija knjiga" class="main-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Editorial Selection Section -->
+    <section class="editorial-selection-section">
+        <div class="container">
+            <div class="section-header-simple">
+                <h2 class="section-title">Izdvojena Selekcija</h2>
+                <a href="catalog.html" class="section-link d-none d-sm-flex">
+                    KOMPLETAN KATALOG <i class="bi bi-arrow-right ms-2"></i>
+                </a>
+            </div>
+            
+            <div class="row" id="featuredBooks">
+                <!-- Featured books will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="quote-section">
+        <div class="container">
+            <div class="quote-content">
+                <i class="bi bi-quote quote-icon"></i>
+                <h2 class="quote-text">
+                    "Soba bez knjiga je kao telo bez duše."
+                </h2>
+                <p class="quote-author">MARCUS TULLIUS CICERO</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Author Spotlight Section -->
+    <section class="author-spotlight-section">
+        <div class="container">
+            <div class="author-spotlight-card">
+                <div class="row align-items-stretch">
+                    <div class="col-lg-6 author-content">
+                        <div class="author-badge">
+                            <i class="bi bi-pen me-2"></i>
+                            <span>U FOKUSU</span>
+                        </div>
+                        <h2 class="author-name">Ivo Andrić</h2>
+                        <blockquote class="author-quote">
+                            "Čovek je ono što čini, a ne ono što govori ili misli."
+                        </blockquote>
+                        <p class="author-description">
+                            Dobitnik Nobelove nagrade za književnost, čija dela predstavljaju vrhunac srpske proze. Njegovi romani ostaju neprolazni spomenici naše kulture.
+                        </p>
+                        <a href="catalog.html" class="author-link">PREGLEDAJ DELA</a>
+                    </div>
+                    <div class="col-lg-6 author-image-container">
+                        <img src="assets/img/ivo_andric.jpg" alt="Cosmos background" class="author-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row footer-content">
+                <div class="col-md-4 footer-section">
+                    <h5 class="footer-title">NAVIGACIJA</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Početna Stranica</a></li>
+                        <li><a href="catalog.html">Katalog Knjiga</a></li>
+                        <li><a href="author.html">Autor Stranica</a></li>
+                        <li><a href="contact.html">Kontakt Stranica</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-4 footer-section">
+                    <h5 class="footer-title">KONTAKT INFO</h5>
+                    <ul class="footer-contact">
+                        <li><i class="bi bi-telephone me-2"></i>+381(11) 3290 828</li>
+                        <li><i class="bi bi-envelope me-2"></i>info@ict.edu.rs</li>
+                        <li><i class="bi bi-geo-alt me-2"></i>Zdravka Čelara 16</li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-4 footer-section">
+                    <h5 class="footer-title">
+                        <i class="bi bi-book me-2"></i>Čitaonica+
+                    </h5>
+                    <p class="footer-description">Online sistem za rezervaciju knjiga u bibliotekama. Jednostavno pretražite, rezervišite i preuzmite knjige iz naše digitalne biblioteke srpske književnosti.</p>
+                    <a href="contact.html" class="btn btn-outline-primary">KONTAKTIRAJ NAS</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p class="footer-copyright">©2025 SVI PRAVA ZADRŽANA</p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <div class="footer-social">
+                            <a href="https://github.com" class="social-link" target="_blank"><i class="bi bi-github"></i></a>
+                            <a href="https://youtube.com" class="social-link" target="_blank"><i class="bi bi-youtube"></i></a>
+                            <a href="https://instagram.com" class="social-link" target="_blank"><i class="bi bi-instagram"></i></a>
+                        </div>
+                        <p class="footer-developer">DEVELOPED BY <span class="text-gold">DARKO MILOŠEVIĆ</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="scroll-to-top">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Custom JS -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
