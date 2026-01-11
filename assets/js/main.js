@@ -6,10 +6,8 @@ const BOOKS = [
     category: 'klasici',
     available: true,
     image: 'assets/img/books/na_drini_cuprija.jpg',
-    description: 'Nobelovac Ivo Andrić u ovom remek-delu priča priču o viševekovnoj istoriji mosta na Drini.',
     rating: 4.9,
-    featured: true,
-    isbn: '978-86-17-12345-1'
+    featured: true
   },
   {
     id: '2',
@@ -18,10 +16,8 @@ const BOOKS = [
     category: 'klasici',
     available: true,
     image: 'assets/img/books/seobe.jpg',
-    description: 'Monumentalno delo srpske književnosti o sudbini Srba u 18. veku.',
     rating: 4.8,
-    featured: true,
-    isbn: '978-86-17-12345-2'
+    featured: true
   },
   {
     id: '3',
@@ -30,10 +26,8 @@ const BOOKS = [
     category: 'klasici',
     available: true,
     image: 'assets/img/books/dervis_i_smrt.jpg',
-    description: 'Filozofski roman o čoveku koji traži istinu u vremenu kada je istina opasna.',
     rating: 4.8,
-    featured: true,
-    isbn: '978-86-17-12345-3'
+    featured: true
   },
   {
     id: '4',
@@ -42,9 +36,7 @@ const BOOKS = [
     category: 'klasici',
     available: true,
     image: 'assets/img/books/travnicka_hronika.jpg',
-    description: 'Drugi veliki roman Ive Andrića o životu u Travniku tokom napoleonskih ratova.',
-    rating: 4.7,
-    isbn: '978-86-17-12345-4'
+    rating: 4.7
   },
   {
     id: '5',
@@ -53,9 +45,7 @@ const BOOKS = [
     category: 'savremeno',
     available: true,
     image: 'assets/img/books/hazarski_recnik.jpg',
-    description: 'Jedinstveni roman-leksikon o Hazarima u tri verzije: hrišćanskoj, islamskoj i jevrejskoj.',
-    rating: 4.6,
-    isbn: '978-86-17-12345-5'
+    rating: 4.6
   },
   {
     id: '6',
@@ -64,9 +54,7 @@ const BOOKS = [
     category: 'poezija',
     available: true,
     image: 'assets/img/books/gorski_vijenac.jpg',
-    description: 'Najveće delo crnogorskog vladike i pesnika, ep o borbi protiv Turaka.',
-    rating: 4.9,
-    isbn: '978-86-17-12345-11'
+    rating: 4.9
   },
   {
     id: '7',
@@ -75,9 +63,7 @@ const BOOKS = [
     category: 'poezija',
     available: true,
     image: 'assets/img/books/branko_radicevic.jpg',
-    description: 'Zbirka pesama jednog od najznačajnijih srpskih romantičara.',
-    rating: 4.6,
-    isbn: '978-86-17-12345-7'
+    rating: 4.6
   },
   {
     id: '8',
@@ -86,9 +72,7 @@ const BOOKS = [
     category: 'klasici',
     available: true,
     image: 'assets/img/books/kostana.jpg',
-    description: 'Drama o ljubavi i strasti u patrijarhalnom društvu južne Srbije.',
-    rating: 4.5,
-    isbn: '978-86-17-12345-8'
+    rating: 4.5
   },
   {
     id: '9',
@@ -97,9 +81,7 @@ const BOOKS = [
     category: 'klasici',
     available: true,
     image: 'assets/img/books/pokondirena_tikva.jpg',
-    description: 'Humoristična priča o životu u Nišu krajem 19. veka.',
-    rating: 4.4,
-    isbn: '978-86-17-12345-9'
+    rating: 4.4
   },
   {
     id: '10',
@@ -108,9 +90,7 @@ const BOOKS = [
     category: 'klasici',
     available: true,
     image: 'assets/img/books/prokleta_avlija.jpg',
-    description: 'Treći veliki roman Ive Andrića o zatvorskoj avliji u Carigradu.',
-    rating: 4.6,
-    isbn: '978-86-17-12345-10'
+    rating: 4.6
   },
   {
     id: '11',
@@ -119,9 +99,7 @@ const BOOKS = [
     category: 'poezija',
     available: true,
     image: 'assets/img/books/narodne_pesme.jpg',
-    description: 'Zbirka najlepših srpskih narodnih pesama koje je sakupio Vuk Karadžić.',
-    rating: 4.9,
-    isbn: '978-86-17-12345-12'
+    rating: 4.9
   },
   {
     id: '12',
@@ -130,13 +108,11 @@ const BOOKS = [
     category: 'savremeno',
     available: true,
     image: 'assets/img/books/kad_su_cvetale_tikve.jpg',
-    description: 'Roman o odrastanju i sazrevanju u malograđanskoj sredini.',
-    rating: 4.2,
-    isbn: '978-86-17-12345-13'
+    rating: 4.2
   }
 ];
 
-// Initialize on page load
+// Inicijalizacija na učitavanje stranice
 window.onload = () => {
     window.scrollTo(0, 0);
 };
@@ -144,68 +120,75 @@ window.onload = () => {
 document.addEventListener('DOMContentLoaded', () => {
     RunUniversalPageCode();
     
-    const body = document.querySelector('body');
-    if (!body) {
-        console.error('Greška: Nije pronađen body na stranici.');
-        return;
-    }
-    
-    const page = body.dataset.page;
+    const page = document.body.dataset.page;
     if (!page) {
         console.error('Greška: Nije pronađen data-page atribut u body.');
         return;
     }
     
-    if (page === 'home') RunHomePageCode();
-    else if (page === 'catalog') RunCatalogPageCode();
-    else if (page === 'contact') RunContactPageCode();
-    else if (page === 'author') RunAuthorPageCode();
-    else console.error(`Stranica sa imenom '${page}' ne postoji. Proveriti vrednost data-page atributa.`);
+    const pageHandlers = {
+        'home': RunHomePageCode,
+        'catalog': RunCatalogPageCode,
+        'contact': RunContactPageCode,
+        'author': RunAuthorPageCode
+    };
+    
+    if (pageHandlers[page]) {
+        pageHandlers[page]();
+    } else {
+        console.error(`Stranica sa imenom '${page}' ne postoji. Proveriti vrednost data-page atributa.`);
+    }
 });
 
-// Universal code for all pages
+// Univerzalni kod za sve stranice
 const RunUniversalPageCode = () => {
-    // Update active navigation links
     updateActiveLinks();
-    
-    // Mobile menu toggle
+    initializeMobileMenu();
+    initializeNavbarScroll();
+    initializeScrollToTop();
+};
+
+// Inicijalizacija mobilnog menija
+const initializeMobileMenu = () => {
     const navbarToggler = document.getElementById('navbarToggler');
     const mobileMenu = document.getElementById('mobileMenu');
     const navbarIcon = document.getElementById('navbarIcon');
     
-    if (navbarToggler && mobileMenu) {
-        navbarToggler.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
-            navbarIcon.className = mobileMenu.classList.contains('active') ? 'bi bi-x' : 'bi bi-list';
-        });
-        
-        // Close mobile menu when clicking on links
-        const mobileNavLinks = mobileMenu.querySelectorAll('.mobile-nav-link');
-        mobileNavLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-                navbarIcon.className = 'bi bi-list';
-            });
-        });
-        
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!mobileMenu.contains(e.target) && !navbarToggler.contains(e.target)) {
-                mobileMenu.classList.remove('active');
-                navbarIcon.className = 'bi bi-list';
-            }
-        });
-    }
+    if (!navbarToggler || !mobileMenu) return;
     
-    // Navbar scroll effect
+    navbarToggler.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+        navbarIcon.className = mobileMenu.classList.contains('active') ? 'bi bi-x' : 'bi bi-list';
+    });
+    
+    // Zatvaranje mobilnog menija
+    mobileMenu.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            navbarIcon.className = 'bi bi-list';
+        });
+    });
+    
+    document.addEventListener('click', (e) => {
+        if (!mobileMenu.contains(e.target) && !navbarToggler.contains(e.target)) {
+            mobileMenu.classList.remove('active');
+            navbarIcon.className = 'bi bi-list';
+        }
+    });
+};
+
+// Navbar scroll efekat
+const initializeNavbarScroll = () => {
     const navbar = document.getElementById('mainNavbar');
     if (navbar) {
         window.addEventListener('scroll', () => {
             navbar.classList.toggle('scrolled', window.scrollY > 20);
         });
     }
-    
-    // Scroll to top button
+};
+
+// Scroll to top dugme
+const initializeScrollToTop = () => {
     const scrollToTopBtn = document.getElementById('scrollToTop');
     if (scrollToTopBtn) {
         window.addEventListener('scroll', () => {
@@ -216,39 +199,18 @@ const RunUniversalPageCode = () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
-    
-    // Parallax effect for hero section
-    const heroSection = document.querySelector('.hero-section');
-    if (heroSection) {
-        const heroImage = heroSection.querySelector('.hero-bg-image');
-        if (heroImage) {
-            window.addEventListener('scroll', () => {
-                const scrolled = window.pageYOffset;
-                const parallax = scrolled * 0.5;
-                heroImage.style.transform = `scale(1.05) translateY(${parallax}px)`;
-            });
-        }
-    }
 };
 
-// Update active navigation links
+// Ažuriranje aktivnih navigacionih linkova
 const updateActiveLinks = () => {
     const currentPage = document.body.getAttribute('data-page');
-    const allNavLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
-    
-    allNavLinks.forEach(link => link.classList.remove('active'));
-    
-    const pageMap = {
-        'home': 'index.html',
-        'catalog': 'catalog.html',
-        'author': 'author.html',
-        'contact': 'contact.html'
-    };
-    
+    const pageMap = { 'home': 'index.html', 'catalog': 'catalog.html', 'author': 'author.html', 'contact': 'contact.html' };
     const currentPageFile = pageMap[currentPage];
+    
+    document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(link => link.classList.remove('active'));
+    
     if (currentPageFile) {
-        const activeLinks = document.querySelectorAll(`a[href="${currentPageFile}"]`);
-        activeLinks.forEach(link => {
+        document.querySelectorAll(`a[href="${currentPageFile}"]`).forEach(link => {
             if (link.classList.contains('nav-link') || link.classList.contains('mobile-nav-link')) {
                 link.classList.add('active');
             }
@@ -256,53 +218,21 @@ const updateActiveLinks = () => {
     }
 };
 
-// Home page code
+// Kod za početnu stranicu
 const RunHomePageCode = () => {
     renderFeaturedBooks();
 };
 
-// Render featured books
+// Renderovanje izdvojenih knjiga
 const renderFeaturedBooks = () => {
     const container = document.getElementById('featuredBooks');
     if (!container) return;
     
     const featuredBooks = BOOKS.filter(book => book.featured).slice(0, 3);
-    const categoryNames = {
-        'klasici': 'SRPSKI KLASICI',
-        'savremeno': 'SAVREMENA PROZA',
-        'poezija': 'POEZIJA I EPIKA'
-    };
-    
-    container.innerHTML = featuredBooks.map(book => `
-        <div class="col-md-4">
-            <div class="book-card">
-                <div class="book-image-container">
-                    <img src="${book.image}" alt="${book.title}" class="book-image">
-                    ${book.featured ? '<div class="book-featured-badge">IZDVOJENO</div>' : ''}
-                </div>
-                <div class="book-content">
-                    <div class="book-meta">
-                        <span class="book-category">${categoryNames[book.category] || book.category}</span>
-                        <div class="book-rating">
-                            <i class="bi bi-star-fill"></i>
-                            <span class="book-rating-text">${book.rating}</span>
-                        </div>
-                    </div>
-                    <h3 class="book-title">${book.title}</h3>
-                    <p class="book-author">${book.author}</p>
-                    <div class="book-footer">
-                        <span class="book-availability available">
-                            ✅ Dostupno
-                        </span>
-                        <a href="#" class="book-details">DETALJI</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `).join('');
+    container.innerHTML = featuredBooks.map(book => createBookCard(book, false)).join('');
 };
 
-// Catalog page code
+// Kod za katalog stranicu
 const RunCatalogPageCode = () => {
     renderAllBooks();
     initializeReservationSystem();
@@ -314,7 +244,35 @@ const RunCatalogPageCode = () => {
     if (availabilityFilter) availabilityFilter.addEventListener('change', applyFilters);
 };
 
-// Render all books for catalog
+// Kreiranje HTML koda za knjige
+const createBookCard = (book, showReserveBtn = false) => {
+    const categories = { 'klasici': 'SRPSKI KLASICI', 'savremeno': 'SAVREMENA PROZA', 'poezija': 'POEZIJA I EPIKA' };
+    
+    return `
+        <div class="col-md-4">
+            <div class="book-card">
+                <div class="book-image-container">
+                    <img src="${book.image}" alt="${book.title}" class="book-image">
+                    ${book.featured ? '<div class="book-featured-badge">IZDVOJENO</div>' : ''}
+                </div>
+                <div class="book-content">
+                    <div class="book-meta">
+                        <span class="book-category">${categories[book.category] || book.category}</span>
+                        <div class="book-rating"><i class="bi bi-star-fill"></i><span class="book-rating-text">${book.rating}</span></div>
+                    </div>
+                    <h3 class="book-title">${book.title}</h3>
+                    <p class="book-author">${book.author}</p>
+                    <div class="book-footer">
+                        <span class="book-availability available">✅ Dostupno</span>
+                        ${showReserveBtn ? `<button class="reserve-btn" data-book-id="${book.id}">📚 Rezerviši</button>` : ''}
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+};
+
+// Renderovanje svih knjiga za katalog
 const renderAllBooks = (booksToRender = BOOKS) => {
     const container = document.getElementById('catalogBooks');
     const noResults = document.getElementById('noResults');
@@ -328,216 +286,186 @@ const renderAllBooks = (booksToRender = BOOKS) => {
     }
     
     if (noResults) noResults.style.display = 'none';
+    container.innerHTML = booksToRender.map(book => createBookCard(book, true)).join('');
     
-    const categoryNames = {
-        'klasici': 'SRPSKI KLASICI',
-        'savremeno': 'SAVREMENA PROZA',
-        'poezija': 'POEZIJA I EPIKA'
-    };
-    
-    container.innerHTML = booksToRender.map(book => `
-        <div class="col-md-4">
-            <div class="book-card">
-                <div class="book-image-container">
-                    <img src="${book.image}" alt="${book.title}" class="book-image">
-                    ${book.featured ? '<div class="book-featured-badge">IZDVOJENO</div>' : ''}
-                </div>
-                <div class="book-content">
-                    <div class="book-meta">
-                        <span class="book-category">${categoryNames[book.category] || book.category}</span>
-                        <div class="book-rating">
-                            <i class="bi bi-star-fill"></i>
-                            <span class="book-rating-text">${book.rating}</span>
-                        </div>
-                    </div>
-                    <h3 class="book-title">${book.title}</h3>
-                    <p class="book-author">${book.author}</p>
-                    <div class="book-footer">
-                        <span class="book-availability available">
-                            ✅ Dostupno
-                        </span>
-                        <button class="reserve-btn" data-book-id="${book.id}">
-                            📚 Rezerviši
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `).join('');
-    
-    // Add event listeners to reserve buttons
-    const reserveButtons = container.querySelectorAll('.reserve-btn');
-    reserveButtons.forEach(button => {
+    // Dodavanje event listenera za dugmad rezervacije
+    container.querySelectorAll('.reserve-btn').forEach(button => {
         button.addEventListener('click', (e) => {
             e.preventDefault();
             const bookId = button.getAttribute('data-book-id');
             const book = BOOKS.find(b => b.id === bookId);
-            if (book) {
-                openReservationModal(book);
-            }
+            if (book) openReservationModal(book);
         });
     });
 };
 
-// Apply filters
+// Primena filtera
 const applyFilters = () => {
     const categoryFilter = document.getElementById('categoryFilter');
     const availabilityFilter = document.getElementById('availabilityFilter');
     
-    let filteredBooks = [...BOOKS];
-    
-    // Category filter
-    if (categoryFilter && categoryFilter.value !== 'svi') {
-        filteredBooks = filteredBooks.filter(book => book.category === categoryFilter.value);
-    }
-    
-    // Availability filter
-    if (availabilityFilter && availabilityFilter.value !== 'sve') {
-        const availability = availabilityFilter.value;
-        filteredBooks = filteredBooks.filter(book => {
-            switch (availability) {
-                case 'dostupne': return book.available === true;
-                default: return true;
-            }
-        });
-    }
+    let filteredBooks = BOOKS.filter(book => {
+        const categoryMatch = !categoryFilter || categoryFilter.value === 'svi' || book.category === categoryFilter.value;
+        const availabilityMatch = !availabilityFilter || availabilityFilter.value === 'sve' || (availabilityFilter.value === 'dostupne' && book.available);
+        return categoryMatch && availabilityMatch;
+    });
     
     renderAllBooks(filteredBooks);
 };
 
-// Contact page code
+// Kod za kontakt stranicu
 const RunContactPageCode = () => {
     initializeContactForm();
     initializeReviewSystem();
 };
 
-// Contact form validation
+// Kod za autor stranicu
+const RunAuthorPageCode = () => {
+    // Kod specifičan za autor stranicu ako je potreban
+};
+
+// Univerzalne validacione funkcije
+const validateField = (field, fieldId = null) => {
+    const value = field.value.trim();
+    const fieldName = fieldId || field.name;
+    let error = '';
+    
+    if (field.hasAttribute('required') && !value) {
+        error = 'Ovo polje je obavezno.';
+    } else if (fieldName === 'agreement' && field.type === 'checkbox' && !field.checked) {
+        error = 'Morate se složiti sa uslovima korišćenja.';
+    } else if (value && (fieldName === 'email' || field.type === 'email')) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(value)) error = 'Neispravna email adresa.';
+    } else if (fieldName === 'fullName' && value) {
+        const nameRegex = /^[a-zA-ZšđčćžŠĐČĆŽ\s]{3,}$/;
+        if (!nameRegex.test(value)) {
+            error = 'Ime i prezime moraju imati minimum 3 karaktera i sadržavati samo slova.';
+        }
+    } else if (fieldName === 'phone' && value) {
+        const phoneRegex = /^[\+]?[0-9\s\-\(\)]{8,15}$/;
+        if (!phoneRegex.test(value)) {
+            error = 'Neispravna format telefona.';
+        }
+    } else if (fieldName === 'reservationDate' && value) {
+        const selectedDate = new Date(value);
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        if (selectedDate < today) error = 'Datum rezervacije ne može biti u prošlosti.';
+    }
+    
+    return error;
+};
+
+const showFieldError = (field, message, isReservation = false) => {
+    field.classList.add('is-invalid');
+    field.classList.remove('is-valid');
+    
+    if (isReservation) {
+        const errorElement = document.getElementById(field.id + 'Error');
+        if (errorElement) errorElement.textContent = message;
+    } else {
+        const container = field.parentNode;
+        let errorElement = container.querySelector('.error-message');
+        if (!errorElement) {
+            errorElement = document.createElement('span');
+            errorElement.className = 'error-message';
+            container.appendChild(errorElement);
+        }
+        errorElement.textContent = message;
+    }
+};
+
+const showFieldSuccess = (field, isReservation = false) => {
+    field.classList.add('is-valid');
+    field.classList.remove('is-invalid');
+    
+    if (isReservation) {
+        const errorElement = document.getElementById(field.id + 'Error');
+        if (errorElement) errorElement.textContent = '';
+    } else {
+        const container = field.parentNode;
+        const errorElement = container.querySelector('.error-message');
+        if (errorElement) errorElement.remove();
+    }
+};
+
+// Validacija kontakt forme
 const initializeContactForm = () => {
     const form = document.getElementById('contactForm');
     if (!form) return;
     
-    // Real-time validation
+    // Real-time validacija za sva polja
     const formFields = form.querySelectorAll('input, textarea, select');
     formFields.forEach(field => {
-        if (field.type === 'checkbox' || field.type === 'radio') {
-            field.addEventListener('change', () => validateContactField(field));
-        } else {
-            field.addEventListener('blur', () => validateContactField(field));
-            field.addEventListener('input', () => clearContactFieldError(field));
+        // Validacija na blur (kada korisnik napusti polje)
+        field.addEventListener('blur', () => {
+            const error = validateField(field);
+            if (error) {
+                showFieldError(field, error);
+            } else {
+                showFieldSuccess(field);
+            }
+        });
+        
+        // Validacija na input (dok korisnik kuca)
+        field.addEventListener('input', () => {
+            // Samo ako je polje već bilo validirano (ima klase)
+            if (field.classList.contains('is-invalid') || field.classList.contains('is-valid')) {
+                const error = validateField(field);
+                if (error) {
+                    showFieldError(field, error);
+                } else {
+                    showFieldSuccess(field);
+                }
+            }
+        });
+        
+        // Posebno za checkbox
+        if (field.type === 'checkbox') {
+            field.addEventListener('change', () => {
+                const error = validateField(field);
+                if (error) {
+                    showFieldError(field, error);
+                } else {
+                    showFieldSuccess(field);
+                }
+            });
         }
     });
     
-    // Form submission
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         
         let isValid = true;
+        
         formFields.forEach(field => {
-            if (!validateContactField(field)) isValid = false;
+            const error = validateField(field);
+            if (error) {
+                showFieldError(field, error);
+                isValid = false;
+            } else {
+                showFieldSuccess(field);
+            }
         });
         
         if (isValid) {
-            showNotification('Vaša poruka je uspešno poslata!', 'success');
+            showSuccessMessage(form, 'Email je uspešno poslat! Kontaktiraćemo vas u što kraćem roku.');
             form.reset();
+            // Ukloni sve validacione klase nakon reset-a
+            formFields.forEach(field => {
+                field.classList.remove('is-valid', 'is-invalid');
+                const container = field.parentNode;
+                const errorElement = container.querySelector('.error-message');
+                if (errorElement) errorElement.remove();
+            });
         } else {
-            showNotification('Molimo ispravite greške u formi.', 'error');
+            hideSuccessMessage(form);
         }
     });
 };
 
-// Field validation for contact forms
-const validateContactField = (field) => {
-    const value = field.value.trim();
-    const fieldName = field.name;
-    let isValid = true;
-    let errorMessage = '';
-    
-    // Required field check
-    if (field.hasAttribute('required') && !value) {
-        isValid = false;
-        errorMessage = 'Ovo polje je obavezno.';
-    }
-    
-    // Agreement checkbox
-    if (fieldName === 'agreement' && field.type === 'checkbox' && !field.checked) {
-        isValid = false;
-        errorMessage = 'Morate se složiti sa uslovima korišćenja.';
-    }
-    
-    // Email validation
-    if (value && fieldName === 'email') {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(value)) {
-            isValid = false;
-            errorMessage = 'Neispravna email adresa.';
-        }
-    }
-    
-    // Name validation
-    if (value && (fieldName === 'firstName' || fieldName === 'lastName')) {
-        const nameRegex = /^[A-ZŠĐČĆŽa-zšđčćž\s]{2,30}$/;
-        if (!nameRegex.test(value)) {
-            isValid = false;
-            errorMessage = 'Ime može sadržavati samo slova (2-30 karaktera).';
-        }
-    }
-    
-    // Phone validation
-    if (value && fieldName === 'phone') {
-        const phoneRegex = /^[\d\s\-\+\(\)]{8,20}$/;
-        if (!phoneRegex.test(value)) {
-            isValid = false;
-            errorMessage = 'Neispravna format telefona.';
-        }
-    }
-    
-    if (isValid) {
-        showContactFieldSuccess(field);
-    } else {
-        showContactFieldError(field, errorMessage);
-    }
-    
-    return isValid;
-};
-
-// Show field error for contact forms
-const showContactFieldError = (field, message) => {
-    field.classList.add('is-invalid');
-    field.classList.remove('is-valid');
-    
-    const container = field.type === 'checkbox' || field.type === 'radio' 
-        ? field.closest('.checkbox-item, .radio-item') || field.parentNode
-        : field.parentNode;
-    
-    let errorElement = container.querySelector('.error-message');
-    if (!errorElement) {
-        errorElement = document.createElement('span');
-        errorElement.className = 'error-message';
-        container.appendChild(errorElement);
-    }
-    errorElement.textContent = message;
-};
-
-// Show field success for contact forms
-const showContactFieldSuccess = (field) => {
-    field.classList.add('is-valid');
-    field.classList.remove('is-invalid');
-    clearContactFieldError(field);
-};
-
-// Clear field error for contact forms
-const clearContactFieldError = (field) => {
-    field.classList.remove('is-invalid');
-    
-    const container = field.type === 'checkbox' || field.type === 'radio' 
-        ? field.closest('.checkbox-item, .radio-item') || field.parentNode
-        : field.parentNode;
-    
-    const errorElement = container.querySelector('.error-message');
-    if (errorElement) errorElement.remove();
-};
-
-// Review system
+// Sistem recenzija
 const initializeReviewSystem = () => {
     const reviewForm = document.getElementById('reviewForm');
     if (!reviewForm) return;
@@ -549,58 +477,40 @@ const initializeReviewSystem = () => {
         const reviewRating = document.getElementById('reviewRating').value;
         
         if (reviewText && reviewRating) {
-            addReview(reviewText, reviewRating);
+            const container = document.getElementById('reviewsList');
+            if (container) {
+                const reviewCount = container.children.length + 1;
+                const currentDate = new Date().toLocaleDateString('sr-RS');
+                
+                container.insertAdjacentHTML('afterbegin', `
+                    <div class="review-item">
+                        <div class="review-header">
+                            <div class="review-rating">${'★'.repeat(parseInt(reviewRating))}${'☆'.repeat(5 - parseInt(reviewRating))}</div>
+                            <span class="review-number">Recenzija #${reviewCount}</span>
+                        </div>
+                        <p class="review-text">${reviewText}</p>
+                        <span class="review-date">${currentDate}</span>
+                    </div>
+                `);
+            }
             reviewForm.reset();
-            showNotification('Vaša recenzija je dodana!', 'success');
-        } else {
-            showNotification('Molimo unesite recenziju i ocenu.', 'error');
         }
     });
 };
 
-// Add review
-const addReview = (text, rating) => {
-    const container = document.getElementById('reviewsList');
-    if (!container) return;
-    
-    const reviewCount = container.children.length + 1;
-    const currentDate = new Date().toLocaleDateString('sr-RS');
-    
-    const reviewHTML = `
-        <div class="review-item">
-            <div class="review-header">
-                <div class="review-rating">
-                    ${'★'.repeat(parseInt(rating))}${'☆'.repeat(5 - parseInt(rating))}
-                </div>
-                <span class="review-number">Recenzija #${reviewCount}</span>
-            </div>
-            <p class="review-text">${text}</p>
-            <span class="review-date">${currentDate}</span>
-        </div>
-    `;
-    
-    container.insertAdjacentHTML('afterbegin', reviewHTML);
-};
 
-// Author page code
-const RunAuthorPageCode = () => {
-    // Author page specific code if needed
-};
-
-// Modal functions
+// Modal funkcije
 let currentBook = null;
 
 const openReservationModal = (book) => {
     currentBook = book;
     const modal = document.getElementById('reservationModal');
-    
-    // Set minimum date to today
-    const today = new Date();
-    const todayString = today.toISOString().split('T')[0];
     const dateInput = document.getElementById('reservationDate');
+    
     if (dateInput) {
-        dateInput.min = todayString;
-        dateInput.value = todayString; // Set default to today
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.min = today;
+        dateInput.value = today;
     }
     
     modal.classList.add('active');
@@ -612,36 +522,12 @@ const closeReservationModal = () => {
     modal.classList.remove('active');
     document.body.style.overflow = 'auto';
     
-    // Reset form
-    const form = document.getElementById('reservationForm');
-    form.reset();
+    document.getElementById('reservationForm').reset();
     clearAllErrors();
     currentBook = null;
 };
 
-// Reservation modal field validation functions
-const showReservationFieldError = (fieldId, message) => {
-    const field = document.getElementById(fieldId);
-    const errorElement = document.getElementById(fieldId + 'Error');
-    
-    if (field && errorElement) {
-        field.classList.add('is-invalid');
-        field.classList.remove('is-valid');
-        errorElement.textContent = message;
-    }
-};
-
-const showReservationFieldSuccess = (fieldId) => {
-    const field = document.getElementById(fieldId);
-    const errorElement = document.getElementById(fieldId + 'Error');
-    
-    if (field && errorElement) {
-        field.classList.add('is-valid');
-        field.classList.remove('is-invalid');
-        errorElement.textContent = '';
-    }
-};
-
+// Validacija polja rezervacionog modala
 const clearAllErrors = () => {
     const fields = ['fullName', 'memberCard', 'reservationDate', 'email'];
     fields.forEach(fieldId => {
@@ -655,56 +541,7 @@ const clearAllErrors = () => {
     });
 };
 
-// Reservation modal field validation
-const validateReservationField = (fieldId, value) => {
-    let error = '';
-    
-    switch (fieldId) {
-        case 'fullName':
-            if (!value.trim()) {
-                error = 'Ime i prezime su obavezni.';
-            } else if (value.trim().length < 3) {
-                error = 'Ime i prezime moraju imati minimum 3 karaktera.';
-            }
-            break;
-        case 'memberCard':
-            if (!value.trim()) {
-                error = 'Broj članske karte je obavezan.';
-            }
-            break;
-        case 'reservationDate':
-            if (!value.trim()) {
-                error = 'Datum rezervacije je obavezan.';
-            } else {
-                const selectedDate = new Date(value);
-                const today = new Date();
-                today.setHours(0, 0, 0, 0);
-                
-                if (selectedDate < today) {
-                    error = 'Datum rezervacije ne može biti u prošlosti.';
-                }
-            }
-            break;
-        case 'email':
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!value.trim()) {
-                error = 'Email adresa je obavezna.';
-            } else if (!emailRegex.test(value.trim())) {
-                error = 'Neispravna email adresa.';
-            }
-            break;
-    }
-    
-    if (error) {
-        showReservationFieldError(fieldId, error);
-        return false;
-    } else {
-        showReservationFieldSuccess(fieldId);
-        return true;
-    }
-};
-
-// Initialize reservation system
+// Inicijalizacija rezervacionog sistema
 const initializeReservationSystem = () => {
     const modal = document.getElementById('reservationModal');
     const closeBtn = document.getElementById('closeModal');
@@ -712,184 +549,106 @@ const initializeReservationSystem = () => {
     
     if (!modal || !closeBtn || !form) return;
     
-    // Close modal events
-    closeBtn.addEventListener('click', closeReservationModal);
-    
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            closeReservationModal();
+    // Real-time validacija za rezervacioni modal
+    const fields = ['fullName', 'memberCard', 'reservationDate', 'email'];
+    fields.forEach(fieldId => {
+        const element = document.getElementById(fieldId);
+        if (element) {
+            // Validacija na blur
+            element.addEventListener('blur', () => {
+                const error = validateField(element, fieldId);
+                if (error) {
+                    showFieldError(element, error, true);
+                } else {
+                    showFieldSuccess(element, true);
+                }
+            });
+            
+            // Validacija na input (dok korisnik kuca)
+            element.addEventListener('input', () => {
+                // Samo ako je polje već bilo validirano
+                if (element.classList.contains('is-invalid') || element.classList.contains('is-valid')) {
+                    const error = validateField(element, fieldId);
+                    if (error) {
+                        showFieldError(element, error, true);
+                    } else {
+                        showFieldSuccess(element, true);
+                    }
+                }
+            });
         }
     });
     
+    // Zatvaranje modala
+    closeBtn.addEventListener('click', closeReservationModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeReservationModal();
+    });
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && modal.classList.contains('active')) {
             closeReservationModal();
         }
     });
     
-    // Form validation events
-    const fields = [
-        { id: 'fullName', type: 'input' },
-        { id: 'memberCard', type: 'input' },
-        { id: 'reservationDate', type: 'input' },
-        { id: 'email', type: 'input' }
-    ];
-    
-    fields.forEach(field => {
-        const element = document.getElementById(field.id);
-        if (element) {
-            element.addEventListener('blur', () => {
-                validateReservationField(field.id, element.value);
-            });
-            element.addEventListener('input', () => {
-                // Clear error on input
-                const errorElement = document.getElementById(field.id + 'Error');
-                if (errorElement && errorElement.textContent) {
-                    element.classList.remove('is-invalid');
-                    errorElement.textContent = '';
-                }
-            });
-        }
-    });
-    
-    // Form submission
+    // Slanje forme
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         
         let isValid = true;
         
-        // Validate all fields
-        fields.forEach(field => {
-            const element = document.getElementById(field.id);
-            if (element && !validateReservationField(field.id, element.value)) {
-                isValid = false;
+        fields.forEach(fieldId => {
+            const element = document.getElementById(fieldId);
+            if (element) {
+                const error = validateField(element, fieldId);
+                if (error) {
+                    showFieldError(element, error, true);
+                    isValid = false;
+                } else {
+                    showFieldSuccess(element, true);
+                }
             }
         });
         
         if (isValid) {
-            // Success - redirect to success page
             window.location.href = 'success.html';
         } else {
-            // Show error notification
-            showNotification('Molimo ispravite greške u formi.', 'error');
+            hideSuccessMessage(form);
         }
     });
 };
 
-// Notification system
-const showNotification = (message, type = 'info') => {
-    // Remove existing notifications
-    document.querySelectorAll('.notification').forEach(n => n.remove());
+// Sistem poruka o uspešnosti
+const showSuccessMessage = (form, message) => {
+    const existingMessage = form.querySelector('.success-message');
+    if (existingMessage) existingMessage.remove();
     
-    const notification = document.createElement('div');
-    notification.className = `notification notification-${type}`;
-    notification.innerHTML = `
-        <span>${message}</span>
-        <button class="notification-close">&times;</button>
-    `;
-    
-    const bgColor = type === 'success' ? '#c5a059' : type === 'error' ? '#dc3545' : '#161d2a';
-    const textColor = type === 'success' || type === 'error' ? '#0a0f18' : '#ffffff';
-    
-    notification.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: ${bgColor};
-        color: ${textColor};
-        padding: 1rem 1.5rem;
-        border-radius: 4px;
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        z-index: 10000;
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        max-width: 400px;
-        animation: slideInRight 0.3s ease-out;
-    `;
-    
-    const closeBtn = notification.querySelector('.notification-close');
-    closeBtn.style.cssText = `
-        background: none;
-        border: none;
-        color: inherit;
-        font-size: 1.5rem;
-        cursor: pointer;
-        padding: 0;
-        line-height: 1;
-    `;
-    
-    closeBtn.addEventListener('click', () => {
-        notification.style.animation = 'slideOutRight 0.3s ease-out';
-        setTimeout(() => notification.remove(), 300);
-    });
-    
-    document.body.appendChild(notification);
-    
-    setTimeout(() => {
-        if (notification.parentNode) {
-            notification.style.animation = 'slideOutRight 0.3s ease-out';
-            setTimeout(() => notification.remove(), 300);
-        }
-    }, 5000);
+    const successDiv = document.createElement('div');
+    successDiv.className = 'success-message';
+    successDiv.style.cssText = 'background-color: var(--success); color: var(--text-white); padding: 1rem; margin-top: 1rem; border-radius: 4px; text-align: center; font-weight: 500;';
+    successDiv.textContent = message;
+    form.appendChild(successDiv);
 };
 
-// Add CSS animations for notifications
-const addNotificationStyles = () => {
-    if (document.getElementById('notification-styles')) return;
+const hideSuccessMessage = (form) => {
+    const existingMessage = form.querySelector('.success-message');
+    if (existingMessage) existingMessage.remove();
+};
+
+// Dodavanje stilova za recenzije
+const addReviewStyles = () => {
+    if (document.getElementById('review-styles')) return;
     
     const style = document.createElement('style');
-    style.id = 'notification-styles';
+    style.id = 'review-styles';
     style.textContent = `
-        @keyframes slideInRight {
-            from { opacity: 0; transform: translateX(100%); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-        
-        @keyframes slideOutRight {
-            from { opacity: 1; transform: translateX(0); }
-            to { opacity: 0; transform: translateX(100%); }
-        }
-        
-        .review-item {
-            background: var(--bg-card);
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            border: 1px solid var(--border-subtle);
-        }
-        
-        .review-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-        
-        .review-rating {
-            color: var(--primary-color);
-            font-size: 1.2rem;
-        }
-        
-        .review-number {
-            font-size: 0.8rem;
-            color: var(--text-light-gray);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-        
-        .review-text {
-            color: var(--text-white);
-            margin-bottom: 1rem;
-            line-height: 1.6;
-        }
-        
-        .review-date {
-            font-size: 0.8rem;
-            color: var(--text-light-gray);
-        }
+        .review-item { background: var(--bg-card); padding: 1.5rem; margin-bottom: 1rem; border: 1px solid var(--border-subtle); }
+        .review-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+        .review-rating { color: var(--primary-color); font-size: 1.2rem; }
+        .review-number { font-size: 0.8rem; color: var(--text-light-gray); text-transform: uppercase; letter-spacing: 0.1em; }
+        .review-text { color: var(--text-white); margin-bottom: 1rem; line-height: 1.6; }
+        .review-date { font-size: 0.8rem; color: var(--text-light-gray); }
     `;
     document.head.appendChild(style);
 };
 
-// Initialize notification styles
-addNotificationStyles();
+addReviewStyles();

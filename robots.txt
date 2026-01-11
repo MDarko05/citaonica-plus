@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://mdarko05.github.io/citaonica-plus/sitemap.xml
+
+# Disallow specific files
+Disallow: /assets/css/style_broken.css
+Disallow: /.DS_Store
+Disallow: /dokumentacija-pdf.html
+
+# Allow important pages
+Allow: /index.html
+Allow: /catalog.html
+Allow: /author.html
+Allow: /contact.html
+Allow: /success.html
+Allow: /assets/
+
+# Crawl delay (optional)
+Crawl-delay: 1
